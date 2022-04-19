@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class PostService
 {
 
-    public function store($data)
+        public function store($data)
     {
 
         try{

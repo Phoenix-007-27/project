@@ -8,15 +8,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Admin\Post\BaseController;
-
+use App\Service\PostService;
 
 class IndexController extends BaseController
 {
    public function __invoke(){
 
+    
 
-    $posts = Post::all();
+    
 
+    $posts = Post::paginate(5);
+
+      
 
 return view('admin.posts.index', compact('posts'));
 

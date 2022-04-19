@@ -7,12 +7,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Категории</h1>
+            <h1 class="m-0">Пользователи</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+              <li class="breadcrumb-item active">Пользователи</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -56,6 +56,15 @@ class="col-12">
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
+                   
+                                       
+                    @if($user->role == 1)
+                    <td>Reader</td>
+                    @elseif($user->role == 0)
+                    <td>Admin</td>
+                    @endif
+                   
+
                     <td><a href="{{route('admin.user.show', $user->id)}}"><i class="far fa-eye"></td>
                     <td><a href="{{route('admin.user.edit', $user->id)}}"><i class="fas fa-pencil-alt"></td>
 

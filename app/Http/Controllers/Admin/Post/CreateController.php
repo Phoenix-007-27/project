@@ -16,6 +16,7 @@ class CreateController extends BaseController
 
       $categories = Category::all();
       $tags = Tag::all();
+
       
       
 

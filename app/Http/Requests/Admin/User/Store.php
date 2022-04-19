@@ -26,7 +26,7 @@ class Store extends FormRequest
         return [
           'name' => 'required|string',
           'email' => 'required|string|email|unique:Users',
-          'password' => 'required|string',
+         
             'role' => 'required|integer',
         ];
     }

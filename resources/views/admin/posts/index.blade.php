@@ -11,8 +11,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
+              <li class="breadcrumb-item active">Посты</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,13 +33,14 @@
 class="col-12">
 
 </div>
+
 <div class="row">
     <div class="col-6">
       <div class="card">
 
         </div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0">
+        <div class="card-body table-responsive">
           <table class="table table-hover text-nowrap">
             <thead>
 
@@ -54,6 +55,7 @@ class="col-12">
               </tr>
             </thead>
             <tbody>
+              <div class="container">
                 @foreach ($posts as $post )
                 <tr>
                     <td>{{$post->id}}</td>
@@ -76,21 +78,32 @@ class="col-12">
 
 
                 @endforeach
-
+                      </div>
+                     
 
             </tbody>
           </table>
+         
         </div>
+
+        
+        
         <!-- /.card-body -->
       </div>
+      
       <!-- /.card -->
     </div>
+    
   </div>
+  
           <!-- ./col -->
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
+      
     </section>
     <!-- /.content -->
   </div>
+  
   <!-- /.content-wrapper -->
 @endsection
+

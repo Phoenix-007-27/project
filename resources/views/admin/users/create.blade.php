@@ -46,13 +46,7 @@
                                   @enderror
                               </div>
 
-                              <div class="form-group">
-                                  <input type="text" class="form-control" name="password" id="password"
-                                      placeholder="Пароль">
-                                  @error('password')
-                                      <div class="text-danger">Это поле необходимо для заполнения</div>
-                                  @enderror
-                              </div>
+                           
 
 
                               <div class="form-group w-50">

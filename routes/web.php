@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController');
 });
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
+Route::group(['namespace' => 'Admin', 'middleware' => ['verified', 'auth', 'admin'], 'prefix' => 'admin'], function(){
     Route::group(['namespace' => 'Main'], function () {
-        Route::get('/', 'IndexController');
+        Route::get('/', 'IndexController')->name('admin.main.index');
             });
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], function () {
@@ -55,7 +56,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     });
 
     Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
-        Route::get('/', 'IndexController')->name('admin.user.index');
+        Route::get('/', 'IndexController')
+        //->middleware('admin')
+        ->name('admin.user.index');
         Route::get('/create', 'CreateController')->name('admin.user.create');
         Route::post('/', 'StoreController')->name('admin.user.store');
         Route::get('/{user}', 'ShowController')->name('admin.user.show');
@@ -68,3 +71,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
 Auth::routes();
 
 
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
