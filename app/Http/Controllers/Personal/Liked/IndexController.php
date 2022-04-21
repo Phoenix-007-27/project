@@ -13,7 +13,10 @@ class IndexController extends Controller
 {
    public function __invoke(){
 
+
+
 $posts = auth()->user()->likedPosts;
+
 
 
 
