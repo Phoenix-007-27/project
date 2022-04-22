@@ -19,14 +19,16 @@ class StoreController extends Controller
    {
          $this->service = $injection;
    }
-   
+
    public function __invoke(Store $request){
-      
-      
-      
+
+
+
       $data = $request->validated();
+
+      dd($data);
       $this->service->store($data);
-      
+
 return redirect()->route('admin.post.index');
 
    }
