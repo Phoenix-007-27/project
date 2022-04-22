@@ -46,7 +46,7 @@ class="col-12">
               <tr>
                 <th>ID</th>
                 <th>Название</th>
-                <th colspan="2">Действия</th>
+                <th colspan="2">Роль</th>
 
 
               </tr>
@@ -56,14 +56,14 @@ class="col-12">
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->name}}</td>
-                   
-                                       
+
+
                     @if($user->role == 1)
                     <td>Reader</td>
                     @elseif($user->role == 0)
                     <td>Admin</td>
                     @endif
-                   
+
 
                     <td><a href="{{route('admin.user.show', $user->id)}}"><i class="far fa-eye"></td>
                     <td><a href="{{route('admin.user.edit', $user->id)}}"><i class="fas fa-pencil-alt"></td>

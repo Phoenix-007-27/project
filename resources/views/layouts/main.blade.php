@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+
     <link rel="stylesheet" href="{{asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/aos/aos.css')}}">
@@ -22,16 +22,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="edicaMainNav">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
-                       
-                     
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{route('main.index')}}" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-                           
+
+
+                        <li class="nav-item">
+                            @guest()
+                            <a class="nav-link dropdown-toggle" href="{{route('personal.main.index')}}">Войти</a>
+                            @endguest
                         </li>
-                       
-                       
+
+
                     </ul>
-                  
+
                 </div>
             </nav>
         </div>
