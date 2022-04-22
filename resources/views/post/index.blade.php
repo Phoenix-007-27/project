@@ -13,7 +13,7 @@
                       <img src="{{'storage/' . $post->preview_image}}" alt="blog post">
                     </div>
                     <p class="blog-post-category">{{$post->category->title}}</p>
-                    <a href="#" class="blog-post-permalink">
+                    <a href="{{route('show.index', $post->id)}}" class="blog-post-permalink">
                         <h6 class="blog-post-title">{{$post->title}}</h6>
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                                 <img src="{{'storage/' . $postRandom->preview_image}}" alt="blog post">
                             </div>
                             <p class="blog-post-category">{{$postRandom->category->title}}</p>
-                            <a href="#!" class="blog-post-permalink">
+                            <a href="{{route('show.index', $post->id)}}" class="blog-post-permalink">
                                 <h6 class="blog-post-title">{{$postRandom->title}}</h6>
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                         @foreach ($postsPopular as $postPopular )
                             
                         <li class="post">
-                            <a href="#!" class="post-permalink media">
+                            <a href="{{route('show.index', $post->id)}}" class="post-permalink media">
                                 <img src="{{'storage/' . $postPopular->preview_image}}" alt="blog post">
                                 <div class="media-body">
                                     <h6 class="post-title">{{$postPopular->title}}</h6>
