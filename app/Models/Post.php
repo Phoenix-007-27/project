@@ -16,6 +16,8 @@ class Post extends Model
     protected $table = 'posts';
     protected $guarded = [];
 
+    protected $withCount = ['postPopular'];
+
     public function category()
     {
             return $this->belongsTo(Category::class);
@@ -37,6 +39,10 @@ class Post extends Model
 
         return $this->hasMany(Comment::class, 'post_id', 'id');
     }
+
+    
+
+    
 
 
 }

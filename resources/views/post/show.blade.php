@@ -8,6 +8,30 @@
         <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
             <img src="{{asset('storage/' . $post->preview_image)}}" alt="featured image" class="w-100">
         </section>
+        <div class="d-flex justify-content-between">
+            @auth()
+            
+            <form action="{{route('post.like.store', $post->id)}}" method="post">
+                @csrf
+                <button type="submit" class="border-0 bg-transparent">
+                        @if(auth()->user()->likedPosts->contains($post->id))
+                        <i class="fas fa-heart"></i>
+                        @else
+                        <i class="far fa-heart"></i>
+                    @endif
+                    @endauth
+                    @guest
+                    <div>
+                <span>{{$post->post_popular_count}}</span>
+
+                    <i class="far fa-heart"></i>
+                    </div>
+                    @endguest
+
+            </button>
+
+        </form>
+        </div>
         <section class="post-content">
             <div class="row">
                 <div class="col-lg-9 mx-auto">

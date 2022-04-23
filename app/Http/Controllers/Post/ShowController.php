@@ -20,14 +20,16 @@ class ShowController extends Controller
       //  ->get()
       //  ->take(3);
 
-      // dd( $post->tags->modelKeys('tag_id'));
 
-      // dd(Post::whereIn('category_id', [1] )->get());
+      // dd(Post::find(1)->comments->pluck('comment_text'));
+      // dd(Post::whereIn('category_id', [1, 2])->get());
+      //    dd(Post::whereHas('postPopular')->get());
 
       $relatedPosts = Post::whereHas('tags', fn (Builder $query) => $query
-      ->whereIn('tag_id', $post->tags->modelKeys('tag_id'))
-      ->where('post_id', '!=', $post->tags->modelKeys('tag_id')))
+      ->whereIn('tag_id', $post->tags->modelKeys())
+      ->where('post_id', '!=', $post->tags->modelKeys()))
       ->get()->take(3);
+      
       
 
 

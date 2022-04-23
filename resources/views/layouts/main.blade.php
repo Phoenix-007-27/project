@@ -29,6 +29,11 @@
                             <a class="nav-link dropdown-toggle" href="{{route('personal.main.index')}}">Войти</a>
                             @endguest
                         </li>
+                        <li class="nav-item">
+                            @guest()
+                            <a class="nav-link dropdown-toggle" href="{{route('category.index')}}">Категории</a>
+                            @endguest
+                        </li>
 
 
                     </ul>
